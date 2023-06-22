@@ -1,8 +1,8 @@
 import puppeteer from 'puppeteer';
 import { MongoClient, MongoClientOptions } from 'mongodb';
-import dotenv from 'dotenv';
+import { config } from 'dotenv';
 
-dotenv.config();
+config();
 
 const url = 'https://books.toscrape.com/';
 
@@ -42,8 +42,8 @@ const main = async (): Promise<void> => {
 
     const bookPods = Array.from(document.querySelectorAll('.product_pod'));
     const data: BookData[] = bookPods.map((book) => ({
-      title: book.querySelector('h3 a').getAttribute('title')!,
-      price: convertPrice(book.querySelector('.price_color')!.innerText),
+      title: book.querySelector('h3 a')!.getAttribute('title')!,
+      price: convertPrice(book.querySelector('.price_color')!.textContent!),
       imgSrc: url + book.querySelector('img')!.getAttribute('src')!,
       rating: convertRating(book.querySelector('.star-rating')!.classList[1]),
     }));
