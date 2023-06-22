@@ -1,14 +1,15 @@
 {
     "compilerOptions": {
-        "lib": ["es5", "es6", "dom"],
-        "outDir": "./dist/",
-        "sourceMap": true,
-        "noImplicitAny": true,
-        "module": "commonjs",
-        "target": "es6",
-        "moduleResolution": "node",
-        "jsx": "react"
+      "lib": ["es5", "es6", "dom"],
+      "outDir": "dist",
+      "sourceMap": true,
+      "noImplicitAny": true,
+      "target": "es2017",
+      "module": "esnext",
+      "moduleResolution": "node",
+      "jsx": "react"
     },
-    "include": ["./src/**/*"],
+    "include": ["src/**/*.ts"],
     "exclude": ["dist"]
-}
+  }
+  
